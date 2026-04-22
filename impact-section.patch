@@ -1,0 +1,145 @@
+From 20512796b554bfc8607c011899ee7c5bf3e84207 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Gerg=C5=91=20Kondor?= <kondorgergo@gmail.com>
+Date: Mon, 20 Apr 2026 00:59:04 +0200
+Subject: [PATCH] Add 'Where I Create the Most Impact' section under Design
+ rationale
+
+Adds a new section beneath the Design rationale block, based on the
+Figma spec (node 4:29127): a two-column card with a dark red-tinted
+visual on the left and three numbered capability items on the right
+(Product design, Design system and management, Vibe coding), each
+separated by a red accent divider. Includes matching mobile responsive
+rules.
+---
+ index.html | 106 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 106 insertions(+)
+
+diff --git a/index.html b/index.html
+index 6f27804..7390149 100644
+--- a/index.html
++++ b/index.html
+@@ -560,8 +560,86 @@
+     color: var(--ink-mute); font-size: 11px;
+   }
+ 
++  /* impact — where I create the most impact */
++  .impact {
++    display: grid;
++    grid-template-columns: 360px 1fr;
++    gap: 28px;
++    align-items: stretch;
++    margin-top: 22px;
++    border: 1px solid var(--line);
++    border-radius: 18px;
++    padding: 24px;
++    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
++  }
++  .impact-visual {
++    position: relative;
++    border-radius: 14px;
++    min-height: 320px;
++    overflow: hidden;
++    background:
++      radial-gradient(120% 90% at 20% 25%, rgba(184, 67, 67, 0.55) 0%, rgba(90, 20, 20, 0.35) 38%, rgba(14, 17, 22, 0) 70%),
++      radial-gradient(80% 70% at 65% 80%, rgba(220, 90, 90, 0.32) 0%, rgba(40, 12, 12, 0) 65%),
++      linear-gradient(160deg, #1a0e10 0%, #0c0d12 100%);
++    border: 1px solid var(--line-2);
++  }
++  .impact-visual::before {
++    content: "";
++    position: absolute; inset: 0;
++    background:
++      radial-gradient(14px 14px at 28% 32%, rgba(230,110,110,0.85), rgba(230,110,110,0) 70%),
++      radial-gradient(22px 22px at 42% 48%, rgba(200,70,70,0.65), rgba(200,70,70,0) 75%),
++      radial-gradient(10px 10px at 34% 62%, rgba(240,130,130,0.70), rgba(240,130,130,0) 70%),
++      radial-gradient(18px 18px at 22% 72%, rgba(180,50,50,0.55), rgba(180,50,50,0) 75%),
++      radial-gradient(12px 12px at 52% 28%, rgba(220,90,90,0.60), rgba(220,90,90,0) 70%);
++    filter: blur(0.4px);
++    opacity: 0.9;
++  }
++  .impact-visual::after {
++    content: "";
++    position: absolute; inset: 0;
++    background: linear-gradient(180deg, rgba(10,12,16,0) 55%, rgba(10,12,16,0.55) 100%);
++  }
++  .impact-right { display: flex; flex-direction: column; gap: 18px; padding: 6px 6px 6px 0; }
++  .impact-title {
++    font-family: "DM Serif Display", "DM Serif Text", Georgia, serif;
++    font-weight: 400;
++    font-size: clamp(24px, 2.6vw, 32px);
++    line-height: 1.1;
++    letter-spacing: -0.018em;
++    color: var(--ink);
++    margin: 4px 0 4px;
++  }
++  .impact-list { display: flex; flex-direction: column; gap: 16px; }
++  .impact-item { display: flex; flex-direction: column; gap: 6px; }
++  .impact-item .num {
++    font-family: "DM Mono", ui-monospace, monospace;
++    font-size: 12px; letter-spacing: 0.08em;
++    color: var(--ink-mute);
++  }
++  .impact-item .bar {
++    height: 1px;
++    background: linear-gradient(90deg, #c64545 0%, rgba(198, 69, 69, 0.15) 100%);
++    border: 0; margin: 2px 0 6px;
++  }
++  .impact-item h4 {
++    font-family: "DM Mono", ui-monospace, monospace;
++    font-weight: 500; font-size: 15px;
++    color: var(--ink);
++    letter-spacing: -0.005em;
++    margin: 0;
++  }
++  .impact-item p {
++    color: var(--ink-dim);
++    font-size: 13.5px;
++    line-height: 1.65;
++    margin: 2px 0 0;
++  }
++
+   @media (max-width: 920px) {
+     .pillars { grid-template-columns: 1fr; }
++    .impact { grid-template-columns: 1fr; padding: 18px; gap: 20px; }
++    .impact-visual { min-height: 220px; }
+     .case .case-rail { grid-template-columns: repeat(2, 1fr); }
+     .mock-fin .body { grid-template-columns: 1fr; }
+     .mock-ai .grid { grid-template-columns: 1fr; }
+@@ -624,6 +702,34 @@
+       <p>A designer is a friend of the dev, a partner of stakeholders, and an advocate of users. Design is a team responsibility; a one-person show never works. Designers facilitate and deliver common agreements through empathy and assertive communication.</p>
+     </article>
+   </div>
++
++  <!-- Where I Create the Most Impact -->
++  <div class="impact">
++    <div class="impact-visual" aria-hidden="true"></div>
++    <div class="impact-right">
++      <h3 class="impact-title">Where I Create the Most Impact</h3>
++      <div class="impact-list">
++        <div class="impact-item">
++          <span class="num">01</span>
++          <hr class="bar" />
++          <h4>Product design</h4>
++          <p>End-to-end product design for complex products: discovery, UX/UI, prototyping, and delivery collaboration.</p>
++        </div>
++        <div class="impact-item">
++          <span class="num">02</span>
++          <hr class="bar" />
++          <h4>Design system and management</h4>
++          <p>Built and scaled design systems: governance, standards, documentation, adoption, and operational cadence.</p>
++        </div>
++        <div class="impact-item">
++          <span class="num">03</span>
++          <hr class="bar" />
++          <h4>Vibe coding</h4>
++          <p>Exploring and validating ideas faster with AI — rapid UI scaffolds, interaction demos, iteration loops.</p>
++        </div>
++      </div>
++    </div>
++  </div>
+ </section>
+ 
+ <hr class="rule" />
+-- 
+2.34.1
+
