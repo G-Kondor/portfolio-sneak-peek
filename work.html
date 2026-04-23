@@ -1,0 +1,1363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gergő Kondor — A sneak peek</title>
+<meta name="description" content="A sneak peek at recent work — Gergő Kondor, product designer. SAP, McKinsey & Company, Diligent." />
+<link rel="icon" type="image/png" sizes="18x18" href="assets/favicon/favicon-18.png" />
+<link rel="icon" type="image/png" sizes="34x34" href="assets/favicon/favicon-34.png" />
+<link rel="icon" type="image/png" sizes="50x50" href="assets/favicon/favicon-50.png" />
+<link rel="shortcut icon" href="assets/favicon/favicon-34.png" />
+<link rel="apple-touch-icon" href="assets/favicon/favicon-50.png" />
+<meta name="theme-color" content="#0a0c10" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0c10;
+    --bg-2: #0e1116;
+    --panel: #12161c;
+    --panel-2: #161b22;
+    --line: #1f242c;
+    --line-2: #2a313b;
+    --ink: #ecf0f4;
+    --ink-dim: #9aa3af;
+    --ink-mute: #6b7380;
+    --accent: #ff7675;       /* coral red — editorial highlight */
+    --accent-soft: #ff7675;  /* unified accent for large fills */
+    --accent-2: #9ab5c9;     /* muted slate-blue, quiet second voice */
+    --accent-3: #ff7675;     /* unified accent, used sparingly */
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+  body {
+    font-family: "DM Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    background:
+      radial-gradient(800px 400px at 85% -8%, rgba(255,118,117,0.05), transparent 60%),
+      radial-gradient(700px 400px at -10% 0%, rgba(154,181,201,0.04), transparent 60%),
+      var(--bg);
+    color: var(--ink);
+    font-size: 13.5px;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: -0.005em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  p, li { font-weight: 400; }
+  strong, b { font-weight: 500; }
+  a { color: inherit; text-decoration: none; }
+  .inline-link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(255,118,117,0.35);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 200ms ease, color 200ms ease;
+  }
+  .inline-link:hover { text-decoration-color: var(--accent); }
+  ::selection { background: rgba(255,118,117,0.30); color: #0a0c10; }
+
+  /* layout */
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 56px 0; }
+  section.tight { padding-top: 36px; padding-bottom: 36px; }
+
+  /* small kicker */
+  .kicker {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-dim); font-weight: 400;
+  }
+  .kicker::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); display: inline-block;
+  }
+
+  /* type */
+  h1, h2, h3, h4 { margin: 0; letter-spacing: -0.018em; }
+  h2 {
+    font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-weight: 400;
+    font-size: clamp(22px, 2.4vw, 30px); line-height: 1.15;
+  }
+  h2 em { font-style: italic; color: var(--accent); }
+  h3 { font-family: "DM Mono", ui-monospace, monospace; font-weight: 500; font-size: 16px; }
+  p { margin: 0 0 12px; color: var(--ink); }
+  p.dim { color: var(--ink-dim); }
+
+  /* header */
+  .top {
+    padding-top: 36px;
+    padding-bottom: 18px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 500; font-size: 14px;
+  }
+  .brand .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(255,118,117,0.14);
+  }
+  .top-right {
+    font-family: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    color: var(--ink-mute); font-size: 11px; letter-spacing: 0.04em;
+  }
+
+  /* hero — quieter, smaller */
+  .hero { padding-top: 28px; padding-bottom: 40px; }
+  .hero h1 {
+    font-family: "DM Serif Display", "DM Serif Text", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(26px, 3.2vw, 40px);
+    line-height: 1.16;
+    letter-spacing: -0.022em;
+    margin-top: 16px;
+    max-width: 820px;
+    color: var(--ink);
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); font-weight: 400; }
+  .hero h1 .amp { font-style: italic; color: var(--ink-dim); font-weight: 400; padding: 0 2px; }
+  .hero .lede {
+    margin-top: 20px; max-width: 620px;
+    font-size: 13.5px; color: var(--ink-dim); line-height: 1.75;
+    letter-spacing: -0.003em;
+  }
+  .hero .companies {
+    margin-top: 22px;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 11px; color: var(--ink-mute); letter-spacing: 0.06em;
+  }
+  .hero .companies-row {
+    display: inline-flex; align-items: center; gap: 18px;
+  }
+  .hero .companies .sep { color: var(--line-2); }
+  .hero .companies strong { color: var(--ink-dim); font-weight: 500; letter-spacing: 0.02em; }
+  .hero .companies-meta { color: var(--ink-mute); }
+
+  /* divider */
+  .rule {
+    height: 1px; background: var(--line); margin: 0;
+    max-width: 1100px; margin-left: auto; margin-right: auto;
+  }
+
+  /* pillars */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px; }
+  .pillar {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 22px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pillar .pillar-art {
+    margin: -22px -22px 20px;
+    aspect-ratio: 4 / 3;
+    background:
+      radial-gradient(ellipse at 50% 60%, rgba(255,118,117,0.14), transparent 72%),
+      linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.18));
+    border-bottom: 1px solid var(--line);
+    border-radius: 14px 14px 0 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .pillar .pillar-art img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 16px;
+    transition: transform 600ms cubic-bezier(.2,.7,.2,1);
+  }
+  .pillar:hover .pillar-art img { transform: scale(1.03); }
+  .pillar .idx {
+    position: absolute; top: 14px; right: 14px;
+    font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-style: italic;
+    font-size: 12px; color: var(--ink);
+    background: rgba(10,12,16,0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 2px 10px;
+    border-radius: 999px;
+    z-index: 2;
+  }
+  .pillar h3 {
+    font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-weight: 400;
+    font-size: 19px; letter-spacing: -0.015em;
+    margin-bottom: 10px; color: var(--ink);
+  }
+  .pillar p { color: var(--ink-dim); font-size: 13.5px; line-height: 1.65; }
+  .pillar .cite { color: var(--ink-mute); font-size: 12px; margin-top: 4px; }
+
+  /* work */
+  .work-intro { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 28px; }
+  .work-intro .hint { font-family: "DM Mono", monospace; color: var(--ink-mute); font-size: 11px; letter-spacing: 0.06em; }
+
+  .case {
+    margin-bottom: 56px;
+  }
+  .case-meta {
+    display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+    color: var(--ink-mute); font-size: 12px; letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+  .case-meta .num {
+    font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-style: italic; font-size: 15px; color: var(--ink-dim);
+  }
+  .case-meta .tag {
+    font-family: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    color: var(--ink-dim);
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .case h3.case-title {
+    font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-weight: 400;
+    font-size: clamp(22px, 2.2vw, 28px);
+    line-height: 1.18; letter-spacing: -0.018em;
+    margin-bottom: 8px; color: var(--ink);
+    max-width: 860px;
+  }
+  .case p.case-blurb {
+    color: var(--ink-dim); max-width: 780px; font-size: 14.5px;
+    margin: 0 0 22px;
+  }
+  .case .case-image {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #0c1015;
+    aspect-ratio: 16 / 9;
+    position: relative;
+  }
+  .case .case-image.tall { aspect-ratio: 16 / 11; }
+  .case .case-image.phones { aspect-ratio: 16 / 8; padding: 24px; display: grid; place-items: center; background:
+      radial-gradient(500px 250px at 50% 100%, rgba(255,118,117,0.08), transparent 70%),
+      linear-gradient(180deg, #0e131a, #0a0d12);
+  }
+  .case .case-image.case-photo { aspect-ratio: 16 / 10; background: #0a0d12; }
+  .case .case-image.case-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .case .case-rail {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: minmax(96px, auto) repeat(4, 1fr);
+    gap: 10px 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    max-width: 820px;
+    align-items: start;
+  }
+  .case-rail .k {
+    font-family: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    color: var(--ink-mute); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .case-rail .v { color: var(--ink); font-size: 13px; margin-top: 3px; }
+  .case-rail .company-cell .v { margin-top: 4px; }
+  .case-rail .company-cell img.company-mark {
+    height: 20px; width: auto; display: block;
+    opacity: 0.82; filter: brightness(1.05) contrast(0.95);
+  }
+  .case-rail .company-cell img.company-mark[src*="mckinsey"] { height: 30px; }
+
+  /* ============ MOCKUP STYLES ============ */
+  /* Browser-style admin */
+  .mock-admin {
+    background: #0e1118;
+  }
+  .mock-admin .chrome {
+    height: 36px;
+    background: linear-gradient(180deg, #181d26, #11161e);
+    display: flex; align-items: center; padding: 0 14px;
+    border-bottom: 1px solid #1d2330;
+    gap: 16px;
+  }
+  .mock-admin .chrome .dots { display: flex; gap: 6px; }
+  .mock-admin .chrome .dots span { width: 9px; height: 9px; border-radius: 50%; background: #2a313b; }
+  .mock-admin .chrome .url {
+    flex: 1; height: 18px;
+    background: #0d1219; border: 1px solid #1d2330; border-radius: 6px;
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 10px; color: var(--ink-mute);
+    display: flex; align-items: center; padding: 0 10px;
+    max-width: 380px; margin: 0 auto;
+  }
+  .mock-admin .body {
+    display: grid; grid-template-columns: 200px 1fr;
+    height: calc(100% - 36px);
+  }
+  .mock-admin .side {
+    background: #0c1018;
+    border-right: 1px solid #1a1f29;
+    padding: 20px 14px;
+  }
+  .mock-admin .side .logo {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 24px;
+  }
+  .mock-admin .side .logo .lg-d { width: 18px; height: 18px; border-radius: 5px; background: var(--accent); }
+  .mock-admin .side .logo span { font-size: 12px; font-weight: 500; color: var(--ink); }
+  .mock-admin .side ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+  .mock-admin .side li {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 10px; border-radius: 7px;
+    font-size: 12px; color: var(--ink-mute);
+  }
+  .mock-admin .side li::before { content: ""; width: 12px; height: 12px; border-radius: 3px; background: #1c2230; }
+  .mock-admin .side li.active { background: rgba(255,118,117,0.10); color: var(--ink); }
+  .mock-admin .side li.active::before { background: var(--accent); }
+  .mock-admin .main { padding: 22px 24px; overflow: hidden; }
+  .mock-admin .main h4 {
+    font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-weight: 400; font-size: 18px;
+    letter-spacing: -0.01em; margin: 0 0 4px; color: var(--ink);
+  }
+  .mock-admin .main .sub { font-size: 11px; color: var(--ink-mute); margin-bottom: 16px; }
+  .mock-admin .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
+  .mock-admin .stats .stat {
+    background: #11161e; border: 1px solid #1c2230; border-radius: 9px;
+    padding: 10px 12px;
+  }
+  .mock-admin .stats .stat .n { font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-size: 16px; color: var(--ink); }
+  .mock-admin .stats .stat .l { font-size: 9px; color: var(--ink-mute); margin-top: 3px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .mock-admin .stats .stat.delta .n { color: var(--accent); }
+  .mock-admin .table {
+    background: #11161e; border: 1px solid #1c2230; border-radius: 9px; overflow: hidden;
+  }
+  .mock-admin .table .row {
+    display: grid; grid-template-columns: 26px 1.4fr 1fr 0.7fr 0.7fr;
+    align-items: center; padding: 9px 14px;
+    border-top: 1px solid #181d26; font-size: 11px; color: var(--ink-dim);
+  }
+  .mock-admin .table .row.head { font-family: "DM Mono", monospace; color: var(--ink-mute); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; border-top: 0; background: #0e131b; }
+  .mock-admin .table .row .cell-av { width: 16px; height: 16px; border-radius: 50%; background: #232b39; }
+  .mock-admin .table .row .pill { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 999px; }
+  .mock-admin .table .row .pill.ok { background: rgba(255,118,117,0.15); color: var(--accent); }
+  .mock-admin .table .row .pill.warn { background: rgba(217,194,138,0.12); color: var(--warn, #d9c28a); }
+  .mock-admin .table .row .pill.neu { background: #1d232f; color: var(--ink-dim); }
+  .mock-admin .table .row strong { color: var(--ink); font-weight: 500; }
+
+  /* IA / Systems board */
+  .mock-board {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(154,181,201,0.06), transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(255,118,117,0.05), transparent 50%),
+      #0d121a;
+    position: relative;
+    background-size: 22px 22px, 22px 22px, auto;
+  }
+  .mock-board::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .mock-board .sticky {
+    position: absolute;
+    width: 130px; padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 11px; line-height: 1.35;
+    color: #1f1a08;
+    background: #e6d9b4;
+    box-shadow: 0 8px 20px rgba(0,0,0,.35);
+    transform: rotate(-1.5deg);
+  }
+  .mock-board .sticky.blue { background: #b8c4d4; color: #102338; transform: rotate(1.2deg); }
+  .mock-board .sticky.lime { background: var(--accent); color: #0a0c10; transform: rotate(-2deg); }
+  .mock-board .sticky.coral { background: #c9a28a; color: #2a1408; transform: rotate(2deg); }
+  .mock-board .sticky.white { background: #f3f5f8; color: #14181f; transform: rotate(-1deg); }
+  .mock-board .label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(0,0,0,0.5); margin-bottom: 4px; font-weight: 500; }
+
+  .mock-board .s1 { left: 6%; top: 14%; }
+  .mock-board .s2 { left: 28%; top: 10%; }
+  .mock-board .s3 { left: 50%; top: 18%; }
+  .mock-board .s4 { right: 6%; top: 14%; }
+  .mock-board .s5 { left: 16%; top: 56%; }
+  .mock-board .s6 { left: 38%; top: 60%; }
+  .mock-board .s7 { left: 60%; top: 56%; }
+  .mock-board .s8 { right: 12%; top: 64%; }
+
+  .mock-board svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .case .case-image.mock-board.hug-content {
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 0;
+    padding: 32px;
+    display: block;
+  }
+  .mock-board .board-img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 0;
+  }
+  .mock-board .board-img img {
+    width: 1400px;
+    height: auto;
+    aspect-ratio: 933 / 567;
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: bottom;
+    object-fit: contain;
+  }
+  .case .case-image.mock-board.fill-image {
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 0;
+    padding: 32px;
+    display: block;
+  }
+  .mock-board.fill-image .board-img { width: 100%; line-height: 0; }
+  .mock-board.fill-image .board-img img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
+    vertical-align: bottom;
+  }
+
+  /* Carousel inside a mock-board frame */
+  .carousel-wrap { position: relative; }
+  .carousel {
+    position: relative; z-index: 1;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    display: flex;
+    gap: 0;
+    border-radius: 8px;
+    background: #0d121a;
+  }
+  .carousel::-webkit-scrollbar { display: none; }
+  .carousel .slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    line-height: 0;
+    background: #0d121a;
+  }
+  .carousel .slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #0d121a;
+  }
+  .carousel-dots {
+    position: relative; z-index: 1;
+    display: flex; justify-content: center; gap: 10px;
+    margin-top: 16px;
+  }
+  .carousel-dots .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,0.22);
+    border: 0; padding: 0; cursor: pointer;
+    transition: background 160ms ease, transform 160ms ease;
+  }
+  .carousel-dots .dot:hover { background: rgba(255,255,255,0.45); }
+  .carousel-dots .dot.active { background: var(--ink); transform: scale(1.15); }
+
+  /* Fintech transactions */
+  .mock-fin {
+    background: linear-gradient(160deg, #0f1626, #0a0d12 60%);
+  }
+  .mock-fin .topbar {
+    height: 42px; padding: 0 18px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid #1c2230;
+  }
+  .mock-fin .topbar .left { font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-size: 14px; color: var(--ink); }
+  .mock-fin .topbar .right { display: flex; gap: 8px; align-items: center; font-size: 11px; color: var(--ink-mute); }
+  .mock-fin .topbar .right .av { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #9ab5c9, #ff7675); }
+  .mock-fin .body { padding: 22px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; height: calc(100% - 42px); }
+
+  .mock-fin .panel {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid #1d2330; border-radius: 12px;
+    padding: 16px;
+  }
+  .mock-fin .panel h5 { font-size: 11px; color: var(--ink-mute); margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; }
+  .mock-fin .balance { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; }
+  .mock-fin .balance .big { font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-size: 32px; color: var(--ink); letter-spacing: -0.02em; }
+  .mock-fin .balance .cur { font-size: 12px; color: var(--ink-mute); }
+  .mock-fin .chart {
+    height: 64px; border-radius: 8px;
+    background:
+      linear-gradient(180deg, rgba(255,118,117,0.20), transparent 80%);
+    position: relative; overflow: hidden;
+  }
+  .mock-fin .chart::before {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 100%;
+    background:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60' preserveAspectRatio='none'><path d='M0 50 L20 42 L40 46 L60 30 L80 36 L100 22 L120 28 L140 14 L160 22 L180 10 L200 18 L200 60 L0 60 Z' fill='rgba(255,118,117,0.12)'/><path d='M0 50 L20 42 L40 46 L60 30 L80 36 L100 22 L120 28 L140 14 L160 22 L180 10 L200 18' fill='none' stroke='%23ff7675' stroke-width='1.5'/></svg>") center/100% 100% no-repeat;
+  }
+  .mock-fin .tx { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .mock-fin .tx .row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 4px; border-top: 1px solid #1a1f29;
+    font-size: 11px; color: var(--ink-dim);
+  }
+  .mock-fin .tx .row .l { display: flex; align-items: center; gap: 8px; }
+  .mock-fin .tx .row .av { width: 20px; height: 20px; border-radius: 50%; background: #1d2330; }
+  .mock-fin .tx .row .amt { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+  .mock-fin .tx .row.in .amt { color: var(--accent); }
+
+  .mock-fin .right-col { display: flex; flex-direction: column; gap: 14px; }
+  .mock-fin .send {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid #1d2330; border-radius: 12px;
+    padding: 16px; flex: 1;
+  }
+  .mock-fin .send .row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #1a1f29; font-size: 11px; color: var(--ink-dim); }
+  .mock-fin .send .row:last-child { border: 0; }
+  .mock-fin .send .row .v { color: var(--ink); }
+  .mock-fin .send .cta {
+    margin-top: 10px;
+    background: var(--accent); color: #0a0c10;
+    text-align: center; padding: 9px; border-radius: 8px;
+    font-size: 11px; font-weight: 500;
+  }
+
+  /* AI panel */
+  .mock-ai {
+    background:
+      radial-gradient(500px 280px at 30% 20%, rgba(154,181,201,0.10), transparent 60%),
+      linear-gradient(180deg, #0e131c, #0a0d12);
+    padding: 22px;
+  }
+  .mock-ai .grid {
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; height: 100%;
+  }
+  .mock-ai .doc {
+    background: rgba(255,255,255,0.025); border: 1px solid #1d2330; border-radius: 12px; padding: 18px;
+    overflow: hidden;
+  }
+  .mock-ai .doc .ttl { font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-size: 16px; color: var(--ink); margin-bottom: 8px; }
+  .mock-ai .doc .meta { color: var(--ink-mute); font-size: 10px; margin-bottom: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .mock-ai .doc .line {
+    height: 7px; border-radius: 3px; background: #1c222e; margin: 6px 0;
+  }
+  .mock-ai .doc .line.short { width: 50%; }
+  .mock-ai .doc .line.med { width: 80%; }
+  .mock-ai .doc .line.hl {
+    background: rgba(255,118,117,0.18);
+    border-left: 2px solid var(--accent);
+    padding-left: 6px;
+  }
+
+  .mock-ai .panel {
+    background: #11151c; border: 1px solid #1d2330; border-radius: 12px;
+    padding: 16px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .mock-ai .panel .head {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px; color: var(--ink-dim);
+  }
+  .mock-ai .panel .head .badge {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  }
+  .mock-ai .panel .sug {
+    background: #0e131b; border: 1px solid #1c2230; border-radius: 9px;
+    padding: 10px; font-size: 11px; color: var(--ink-dim);
+  }
+  .mock-ai .panel .sug .why { color: var(--ink-mute); font-size: 10px; margin-top: 4px; }
+  .mock-ai .panel .sug .actions { display: flex; gap: 6px; margin-top: 8px; }
+  .mock-ai .panel .sug .actions .b {
+    font-size: 10px; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--ink-dim);
+  }
+  .mock-ai .panel .sug .actions .b.primary { background: var(--accent); color: #0a0c10; border-color: transparent; font-weight: 500; }
+  .mock-ai .panel .sug.declined { opacity: 0.7; border-style: dashed; }
+  .mock-ai .panel .sug.declined .why { color: var(--accent-3); }
+
+  /* Design system grid */
+  .mock-ds {
+    background:
+      linear-gradient(180deg, #0e131b, #0a0d12);
+    padding: 22px;
+  }
+  .mock-ds .top {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;
+  }
+  .mock-ds .top .ttl { font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-size: 16px; color: var(--ink); }
+  .mock-ds .top .sub { font-size: 11px; color: var(--ink-mute); letter-spacing: 0.06em; text-transform: uppercase; }
+  .mock-ds .grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  }
+  .mock-ds .tile {
+    background: #11161e; border: 1px solid #1c2230; border-radius: 10px;
+    padding: 12px; min-height: 80px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .mock-ds .tile .name { font-size: 10px; color: var(--ink-mute); letter-spacing: 0.04em; }
+  .mock-ds .tile.btn .demo { display: inline-block; padding: 6px 12px; border-radius: 7px; background: var(--accent); color: #0a0c10; font-size: 11px; font-weight: 500; align-self: start; }
+  .mock-ds .tile.btn-g .demo { display: inline-block; padding: 6px 12px; border-radius: 7px; border: 1px solid var(--line-2); color: var(--ink); font-size: 11px; font-weight: 500; align-self: start; }
+  .mock-ds .tile.input .demo { background: #0a0d12; border: 1px solid var(--line-2); border-radius: 6px; height: 22px; }
+  .mock-ds .tile.tag .demo { display: inline-flex; gap: 4px; align-self: start; }
+  .mock-ds .tile.tag .demo span { font-size: 10px; padding: 3px 8px; border-radius: 999px; }
+  .mock-ds .tile.tag .demo .a { background: rgba(255,118,117,0.18); color: var(--accent); }
+  .mock-ds .tile.tag .demo .b { background: rgba(154,181,201,0.18); color: var(--accent-2); }
+  .mock-ds .tile.tag .demo .c { background: rgba(255,118,117,0.18); color: var(--accent-3); }
+  .mock-ds .tile.swatch { padding: 0; overflow: hidden; min-height: 80px; }
+  .mock-ds .tile.swatch .colors { display: flex; height: 56px; }
+  .mock-ds .tile.swatch .colors div { flex: 1; }
+  .mock-ds .tile.swatch .meta { padding: 6px 12px; }
+  .mock-ds .tile.toast .demo { background: #11161e; border: 1px solid var(--accent); border-radius: 8px; padding: 6px 10px; font-size: 10px; color: var(--ink); display: inline-flex; align-items: center; gap: 6px; align-self: start; }
+  .mock-ds .tile.toast .demo::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  .mock-ds .tile.avatar .demo { display: flex; gap: -4px; align-self: start; }
+  .mock-ds .tile.avatar .demo .a {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    border: 2px solid #11161e;
+    margin-left: -6px;
+  }
+  .mock-ds .tile.avatar .demo .a:first-child { margin-left: 0; background: linear-gradient(135deg, var(--accent-3), var(--accent-2)); }
+  .mock-ds .tile.avatar .demo .a:last-child { background: #2a313b; color: var(--ink-dim); display: grid; place-items: center; font-size: 9px; font-weight: 500; }
+
+  .mock-ds .tile.icon .demo { width: 26px; height: 26px; border-radius: 7px; background: rgba(255,118,117,0.12); border: 1px solid rgba(255,118,117,0.3); align-self: start; }
+
+  /* Phones row */
+  .phones-row { display: flex; gap: 22px; align-items: center; justify-content: center; }
+  .phone {
+    width: 165px; height: 340px;
+    background: #0d1219; border: 1px solid #2a313b; border-radius: 28px;
+    overflow: hidden; position: relative;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 6px 18px rgba(0,0,0,0.4);
+  }
+  .phone::before {
+    content: ""; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+    width: 60px; height: 16px; background: #050709; border-radius: 999px; z-index: 2;
+  }
+  .phone .screen {
+    position: absolute; inset: 6px; border-radius: 22px; overflow: hidden;
+    padding: 36px 14px 14px;
+  }
+
+  /* Phone variant 1 — onboarding */
+  .phone.p1 .screen { background: linear-gradient(180deg, #f5f7fb, #e7ecf3); color: #0a0c10; }
+  .phone.p1 .hero-img { height: 110px; border-radius: 14px; background: linear-gradient(135deg, #ff7675, #9ab5c9); margin-bottom: 12px; }
+  .phone.p1 .h { font-size: 13px; font-weight: 500; line-height: 1.2; margin-bottom: 6px; }
+  .phone.p1 .p { font-size: 10px; color: #4b5260; line-height: 1.4; margin-bottom: 16px; }
+  .phone.p1 .btn { background: #0a0c10; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 11px; font-weight: 500; }
+
+  /* Phone variant 2 — list / dashboard */
+  .phone.p2 .screen { background: #0a0c10; color: var(--ink); }
+  .phone.p2 .h { font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-size: 14px; margin-bottom: 4px; }
+  .phone.p2 .sub { font-size: 9px; color: var(--ink-mute); margin-bottom: 12px; }
+  .phone.p2 .stat { background: #11161e; border: 1px solid #1c2230; border-radius: 9px; padding: 9px; margin-bottom: 8px; }
+  .phone.p2 .stat .n { font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-size: 16px; color: var(--accent); }
+  .phone.p2 .stat .l { font-size: 9px; color: var(--ink-mute); margin-top: 2px; }
+  .phone.p2 .row { display: flex; justify-content: space-between; padding: 7px 0; border-top: 1px solid #1c2230; font-size: 10px; color: var(--ink-dim); }
+  .phone.p2 .row span:last-child { color: var(--ink); font-weight: 500; }
+
+  /* Phone variant 3 — chat AI */
+  .phone.p3 .screen { background: linear-gradient(180deg, #11161e, #0a0d12); color: var(--ink); }
+  .phone.p3 .h { font-size: 12px; color: var(--ink-mute); margin-bottom: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .phone.p3 .bubble { padding: 8px 10px; border-radius: 10px; font-size: 10px; margin-bottom: 8px; line-height: 1.4; max-width: 85%; }
+  .phone.p3 .bubble.me { background: rgba(255,118,117,0.18); color: var(--ink); margin-left: auto; border-bottom-right-radius: 4px; }
+  .phone.p3 .bubble.ai { background: #1a212c; color: var(--ink-dim); border-bottom-left-radius: 4px; }
+  .phone.p3 .input { position: absolute; left: 14px; right: 14px; bottom: 14px; height: 30px; border-radius: 999px; background: #0d1219; border: 1px solid #1c2230; }
+
+  /* contact */
+  .contact-strip {
+    border-top: 1px solid var(--line);
+    padding: 40px 0 60px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px;
+    color: var(--ink-dim); font-size: 13px;
+  }
+  .contact-strip .left h3 {
+    font-family: "DM Serif Display", "DM Serif Text", Georgia, serif; font-weight: 400;
+    font-size: 22px; color: var(--ink); letter-spacing: -0.018em; margin-bottom: 4px;
+  }
+  .contact-strip .left p { color: var(--ink-mute); font-size: 13px; margin: 0; }
+  .contact-strip .right { display: flex; gap: 18px; flex-wrap: wrap; }
+  .contact-strip .right a {
+    color: var(--ink); font-weight: 500;
+    border-bottom: 1px solid var(--line-2);
+    padding-bottom: 2px;
+  }
+  .contact-strip .right a:hover { color: var(--accent); border-color: var(--accent); }
+
+  footer.bottom {
+    border-top: 1px solid var(--line);
+    padding: 22px 0 50px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    font-family: "DM Mono", monospace;
+    color: var(--ink-mute); font-size: 11px;
+  }
+
+  /* impact — where I create the most impact */
+  .impact {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 28px;
+    align-items: stretch;
+    margin-top: 22px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  }
+  .impact-visual {
+    position: relative;
+    border-radius: 14px;
+    min-height: 320px;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 90% at 20% 25%, rgba(184, 67, 67, 0.55) 0%, rgba(90, 20, 20, 0.35) 38%, rgba(14, 17, 22, 0) 70%),
+      radial-gradient(80% 70% at 65% 80%, rgba(220, 90, 90, 0.32) 0%, rgba(40, 12, 12, 0) 65%),
+      linear-gradient(160deg, #1a0e10 0%, #0c0d12 100%);
+    border: 1px solid var(--line-2);
+  }
+  .impact-visual::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(14px 14px at 28% 32%, rgba(230,110,110,0.85), rgba(230,110,110,0) 70%),
+      radial-gradient(22px 22px at 42% 48%, rgba(200,70,70,0.65), rgba(200,70,70,0) 75%),
+      radial-gradient(10px 10px at 34% 62%, rgba(240,130,130,0.70), rgba(240,130,130,0) 70%),
+      radial-gradient(18px 18px at 22% 72%, rgba(180,50,50,0.55), rgba(180,50,50,0) 75%),
+      radial-gradient(12px 12px at 52% 28%, rgba(220,90,90,0.60), rgba(220,90,90,0) 70%);
+    filter: blur(0.4px);
+    opacity: 0.9;
+  }
+  .impact-visual::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,12,16,0) 55%, rgba(10,12,16,0.55) 100%);
+  }
+  .impact-right { display: flex; flex-direction: column; gap: 18px; padding: 6px 6px 6px 0; }
+  .impact-title {
+    font-family: "DM Serif Display", "DM Serif Text", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(24px, 2.6vw, 32px);
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin: 4px 0 4px;
+  }
+  .impact-list { display: flex; flex-direction: column; gap: 16px; }
+  .impact-item { display: flex; flex-direction: column; gap: 6px; }
+  .impact-item .num {
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 12px; letter-spacing: 0.08em;
+    color: var(--ink-mute);
+  }
+  .impact-item .bar {
+    height: 1px;
+    background: linear-gradient(90deg, #c64545 0%, rgba(198, 69, 69, 0.15) 100%);
+    border: 0; margin: 2px 0 6px;
+  }
+  .impact-item h4 {
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-weight: 500; font-size: 15px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+  .impact-item p {
+    color: var(--ink-dim);
+    font-size: 13.5px;
+    line-height: 1.65;
+    margin: 2px 0 0;
+  }
+
+  @media (max-width: 960px) {
+    .pillars { grid-template-columns: 1fr; }
+    .impact { grid-template-columns: 1fr; padding: 18px; gap: 20px; }
+    .impact-visual { min-height: 220px; }
+    .case .case-rail { grid-template-columns: repeat(2, 1fr); }
+    .mock-fin .body { grid-template-columns: 1fr; }
+    .mock-ai .grid { grid-template-columns: 1fr; }
+    .mock-ds .grid { grid-template-columns: repeat(2, 1fr); }
+    .phones-row { flex-wrap: wrap; }
+    .work-intro { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+
+  @media (max-width: 640px) {
+    /* 16px side gutters */
+    .wrap { padding: 0 16px; }
+
+    /* tighter section rhythm */
+    section { padding: 40px 0; }
+    section.tight { padding-top: 28px; padding-bottom: 28px; }
+
+    /* header */
+    .top { padding-top: 24px; padding-bottom: 14px; }
+    .top-right { font-size: 10px; letter-spacing: 0.02em; }
+
+    /* hero */
+    .hero { padding-top: 18px; padding-bottom: 32px; }
+    .hero h1 { margin-top: 12px; line-height: 1.18; }
+    .hero .lede { margin-top: 16px; font-size: 13px; line-height: 1.7; }
+    .hero .companies {
+      display: flex; flex-direction: column; align-items: flex-start;
+      gap: 12px; margin-top: 18px;
+      font-size: 10.5px;
+    }
+    .hero .companies-row { gap: 14px; flex-wrap: wrap; }
+
+    /* pillars */
+    .pillars { gap: 14px; margin-top: 18px; }
+    .pillar { padding: 18px 18px 20px; }
+    .pillar .pillar-art { margin: -18px -18px 16px; }
+    .pillar h3 { font-size: 18px; }
+    .pillar p { font-size: 13px; line-height: 1.6; }
+
+    /* case blocks */
+    .case { margin-bottom: 40px; }
+    .case-meta { gap: 8px; margin-bottom: 10px; }
+    .case h3.case-title { font-size: 22px; line-height: 1.2; }
+    .case p.case-blurb { font-size: 14px; margin: 0 0 16px; line-height: 1.6; }
+    .case .case-image { border-radius: 14px; }
+
+    /* shrink the outer frame padding on image-filled cases */
+    .case .case-image.mock-board.fill-image { padding: 16px; }
+    .case .case-image.mock-board.hug-content { padding: 18px; }
+    .case .case-image.phones { padding: 18px; }
+
+    /* carousel — drop a bit of radius so it nests cleanly */
+    .carousel { border-radius: 6px; }
+
+    /* case rail — keep 2 columns, tighter */
+    .case .case-rail { gap: 10px 16px; padding-top: 12px; }
+    .case-rail .v { font-size: 12.5px; }
+
+    /* impact */
+    .impact { padding: 16px; gap: 18px; border-radius: 14px; }
+    .impact-visual { min-height: 200px; border-radius: 12px; }
+    .impact-title { font-size: 24px; }
+    .impact-item h4 { font-size: 14px; }
+    .impact-item p { font-size: 13px; line-height: 1.6; }
+    .impact-right { padding: 4px 2px; gap: 14px; }
+    .impact-list { gap: 14px; }
+
+    /* tools section — full-bleed with 16px gutters */
+    .tools { padding-top: 28px; padding-bottom: 40px; }
+    .tools-head { margin-bottom: 16px; }
+    .tools-row-wrap {
+      margin: 0 -16px;
+      padding: 4px 16px 6px;
+      mask-image: linear-gradient(90deg, transparent, #000 16px, #000 calc(100% - 16px), transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 16px, #000 calc(100% - 16px), transparent);
+    }
+    .tool { padding: 10px 14px; }
+    .tool span { font-size: 11px; }
+    .tool img { width: 16px; height: 16px; }
+
+    /* contact + footer */
+    .contact-strip { padding: 32px 0 36px; gap: 14px; }
+    .contact-strip .left h3 { font-size: 20px; }
+    .contact-strip .right { gap: 14px; font-size: 12.5px; }
+    footer.bottom { padding: 18px 0 32px; gap: 6px; font-size: 10.5px; }
+  }
+
+  @media (max-width: 400px) {
+    /* very small phones — drop rail to single column for readability */
+    .case .case-rail { grid-template-columns: 1fr; }
+  }
+
+  /* ============ Tools / stack ============ */
+  .tools { padding-top: 36px; padding-bottom: 48px; }
+  .tools-head {
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 10px; margin-bottom: 22px;
+  }
+  .tools-title {
+    font-family: "DM Serif Display", "DM Serif Text", Georgia, serif;
+    font-weight: 400; font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.2; letter-spacing: -0.015em; color: var(--ink);
+  }
+  .tools-row-wrap {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -32px;
+    padding: 4px 32px 6px;
+    mask-image: linear-gradient(90deg, transparent, #000 32px, #000 calc(100% - 32px), transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 32px, #000 calc(100% - 32px), transparent);
+  }
+  .tools-row-wrap::-webkit-scrollbar { display: none; }
+  .tools-row {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; gap: 12px; width: max-content;
+  }
+  .tool {
+    flex: 0 0 auto;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 18px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    transition: border-color 200ms ease, transform 200ms ease, background 200ms ease;
+    user-select: none;
+  }
+  .tool:hover {
+    border-color: var(--line-2);
+    transform: translateY(-1px);
+    background: linear-gradient(180deg, rgba(255,118,117,0.05), rgba(255,255,255,0));
+  }
+  .tool img {
+    width: 18px; height: 18px; display: block;
+    filter: brightness(0) invert(1) opacity(0.85);
+    transition: filter 200ms ease;
+  }
+  .tool:hover img { filter: brightness(0) invert(1) opacity(1); }
+  .tool span {
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 12px; color: var(--ink-dim); letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  /* ============ Custom cursor ============ */
+  @media (any-pointer: fine) {
+    html, body, a, button, .ham, .brand, .dot, * { cursor: none; }
+
+    .c-cursor__inner {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0;
+      mix-blend-mode: difference;
+      border-radius: 50%;
+      z-index: 9999;
+      will-change: transform;
+    }
+    .c-cursor__side {
+      position: absolute;
+      top: 50%;
+      width: 5px; height: 1px;
+      background: #fff;
+      opacity: 0;
+    }
+    .c-cursor__side--left  { right: calc(100% + 5px); }
+    .c-cursor__side--right { left:  calc(100% + 5px); }
+    .c-cursor__inner--circle {
+      width: 18px; height: 18px;
+      border: 2px solid var(--accent);
+    }
+  }
+  @media (any-pointer: coarse), (hover: none) {
+    .js-cursor { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ Custom cursor ============ -->
+<div class="js-cursor">
+  <div class="c-cursor__inner c-cursor__inner--circle js-cursor-inner">
+    <div class="c-cursor__side c-cursor__side--left js-cursor-right"></div>
+    <div class="c-cursor__side c-cursor__side--right js-cursor-left"></div>
+  </div>
+</div>
+
+<!-- ============ TOP (no nav, just brand) ============ -->
+<header class="wrap top">
+  <span class="brand"><span class="dot"></span> Gergő Kondor</span>
+  <span class="top-right">A sneak peek · 2026</span>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="wrap hero">
+  <h1>
+    A <em>digital fabricator</em> humanizing technology
+    <span class="amp">&amp;</span> passion for design strategy, ethical UX, and the role of AI in making people's lives easier.
+  </h1>
+  <div class="companies">
+    <div class="companies-row">
+      <strong>SAP</strong>
+      <span class="sep">/</span>
+      <strong>McKinsey &amp; Company</strong>
+      <span class="sep">/</span>
+      <strong>Diligent</strong>
+    </div>
+    <span class="companies-meta">13 years in tech · crafting since kindergarten</span>
+  </div>
+</section>
+
+<!-- ============ HOW I WORK / RATIONALE ============ -->
+<section class="wrap tight">
+  <span class="kicker">Design rationale</span>
+  <div class="pillars">
+    <article class="pillar">
+      <figure class="pillar-art"><img src="assets/nofixed.png" alt="No fixed identity illustration" /></figure>
+      <span class="idx">01</span>
+      <h3>No Fixed Identity</h3>
+      <p>The mediating role of technologies comes about in a complex interplay between technologies and their users. At the very moment human beings use them, artifacts change from mere "objects lying around" into artifacts-for-doing-something. Technologies have no fixed identity; they are defined in their context of use and are always "interpreted" and "appropriated" by their users.</p>
+      <p class="cite">— Peter-Paul Verbeek, 2011</p>
+    </article>
+
+    <article class="pillar">
+      <figure class="pillar-art"><img src="assets/ethical.png" alt="Ethical design illustration" /></figure>
+      <span class="idx">02</span>
+      <h3>Ethical Design</h3>
+      <p>Ethical design is more about the human aspect than general data and privacy. Human-friendly products are just as part of people's lives as necessary, and respect the boundary of free human decision-making without business interest keeping them in the loop. Great design serves — it doesn't trap.</p>
+    </article>
+
+    <article class="pillar">
+      <figure class="pillar-art"><img src="assets/teamwork.png" alt="Teamwork illustration" /></figure>
+      <span class="idx">03</span>
+      <h3>Be Part of the Team</h3>
+      <p>A designer is a friend of the dev, a partner of stakeholders, and an advocate of users. Design is a team responsibility; a one-person show never works. Designers facilitate and deliver common agreements through empathy and assertive communication.</p>
+    </article>
+  </div>
+
+  <!-- Where I Create the Most Impact -->
+  <div class="impact">
+    <div class="impact-visual" aria-hidden="true">
+      <iframe src="https://my.spline.design/particleshand-VYUOlh2wpP2ICgy8lbwIpszF/" frameborder="0" loading="lazy" title="3D animation" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 14px; display: block;"></iframe>
+    </div>
+    <div class="impact-right">
+      <h3 class="impact-title">Where I Create the Most Impact</h3>
+      <div class="impact-list">
+        <div class="impact-item">
+          <span class="num">01</span>
+          <hr class="bar" />
+          <h4>Product design</h4>
+          <p>Lead product design in complex, ambiguous domains—clarifying problem spaces, shaping product strategy, and delivering scalable UX/UI solutions in close partnership with cross-functional teams.</p>
+        </div>
+        <div class="impact-item">
+          <span class="num">02</span>
+          <hr class="bar" />
+          <h4>Design system and management</h4>
+          <p>Drive the evolution of design systems as products—defining governance, standards, and contribution models while enabling adoption through clear documentation and scalable operational practices.</p>
+        </div>
+        <div class="impact-item">
+          <span class="num">03</span>
+          <hr class="bar" />
+          <h4>Vibe coding</h4>
+          <p>Leverage AI to accelerate exploration and decision-making—rapidly generating UI concepts, prototyping interactions, and iterating through high-frequency validation loops to de-risk product direction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SELECTED WORK ============ -->
+<section class="wrap">
+  <!-- CASE 01 — Audit agentic platform, 2025 -->
+  <article class="case">
+    <div class="case-meta">
+      <span class="num">01</span>
+      <span class="tag">Agentic AI</span>
+      <span class="tag">Audit</span>
+      <span class="tag">Platform</span>
+    </div>
+    <h3 class="case-title">Turning Diligent&rsquo;s GRC portfolio into one agentic platform</h3>
+    <p class="case-blurb">Diligent&rsquo;s governance, risk, audit, and compliance products are evolving toward a unified platform experience. Building on Diligent One&rsquo;s AI-powered foundation, this concept explores how agentic workflows could help teams gather evidence, draft findings, automate routine work, and deliver real-time decision support&mdash;while keeping humans in the loop where oversight matters most.</p>
+
+    <div class="case-image mock-board fill-image carousel-wrap" data-carousel="audit">
+      <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Audit agentic platform — 4 views">
+        <div class="slide" aria-roledescription="slide" aria-label="1 of 4: Audit agentic platform overview">
+          <img src="assets/audit_agentic_platform.png" alt="Audit agentic platform — orchestrating specialist AI agents for evidence gathering, findings drafting, and human-in-the-loop review." />
+        </div>
+        <div class="slide" aria-roledescription="slide" aria-label="2 of 4: AI reporting">
+          <img src="assets/ai_reporting.png" alt="AI reporting — AI-assisted analytics surface with charts, narrative commentary, and suggested follow-up questions." />
+        </div>
+        <div class="slide" aria-roledescription="slide" aria-label="3 of 4: AI risks table">
+          <img src="assets/ai_risks_table.png" alt="AI risks table — structured view of identified risks, severity, and mitigation owners." />
+        </div>
+        <div class="slide" aria-roledescription="slide" aria-label="4 of 4: Questionnaires">
+          <img src="assets/questionnares.png" alt="Questionnaires — agentic workflow for drafting, distributing, and tracking audit questionnaire responses." />
+        </div>
+      </div>
+      <div class="carousel-dots" role="tablist" aria-label="Select slide">
+        <button type="button" class="dot active" data-slide="0" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+        <button type="button" class="dot" data-slide="1" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+        <button type="button" class="dot" data-slide="2" role="tab" aria-label="Slide 3" aria-selected="false"></button>
+        <button type="button" class="dot" data-slide="3" role="tab" aria-label="Slide 4" aria-selected="false"></button>
+      </div>
+    </div>
+
+    <div class="case-rail">
+      <div class="company-cell"><div class="k">Company</div><div class="v"><img class="company-mark" src="assets/diligent.png" alt="Diligent" /></div></div>
+      <div><div class="k">Role</div><div class="v">Staff Product Designer</div></div>
+      <div><div class="k">Team</div><div class="v">Platform</div></div>
+      <div><div class="k">Year</div><div class="v">2025&ndash;</div></div>
+      <div><div class="k">Outcome</div><div class="v">Agentic MVP shipped</div></div>
+    </div>
+  </article>
+
+  <!-- CASE 02 — Atlas design system, 2024 -->
+  <article class="case">
+    <div class="case-meta">
+      <span class="num">02</span>
+      <span class="tag">Design system</span>
+      <span class="tag">Tokens</span>
+      <span class="tag">Atlas</span>
+    </div>
+    <h3 class="case-title">Atlas &mdash; one design system for a unified product experience</h3>
+    <p class="case-blurb">Atlas is Diligent&rsquo;s central design system, unifying legacy and modern products under a consistent UI and interaction model. It provides a scalable foundation of tokens, components, and patterns&mdash;supporting the majority of teams while enabling consistent AI experiences and accelerating delivery through internal AI-powered tooling.</p>
+
+    <div class="case-image mock-board fill-image carousel-wrap" data-carousel="atlas">
+      <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Atlas design system — 4 views">
+        <div class="slide" aria-roledescription="slide" aria-label="1 of 4: Components library">
+          <img src="assets/components.png" alt="Atlas design system — components library with primitives, patterns, and tokens." />
+        </div>
+        <div class="slide" aria-roledescription="slide" aria-label="2 of 4: AI chat">
+          <img src="assets/atlas-chat.png" alt="Atlas design system — AI chat interface applied with the system's tokens and components." />
+        </div>
+        <div class="slide" aria-roledescription="slide" aria-label="3 of 4: Adoption numbers">
+          <img src="assets/atlas-numbers.png" alt="Atlas design system — adoption numbers and usage metrics across teams and products." />
+        </div>
+        <div class="slide" aria-roledescription="slide" aria-label="4 of 4: Changelog documentation">
+          <img src="assets/changelog-documentation.png" alt="Atlas design system — changelog documentation tracking versions, releases, and contribution updates." />
+        </div>
+      </div>
+      <div class="carousel-dots" role="tablist" aria-label="Select slide">
+        <button type="button" class="dot active" data-slide="0" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+        <button type="button" class="dot" data-slide="1" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+        <button type="button" class="dot" data-slide="2" role="tab" aria-label="Slide 3" aria-selected="false"></button>
+        <button type="button" class="dot" data-slide="3" role="tab" aria-label="Slide 4" aria-selected="false"></button>
+      </div>
+    </div>
+
+    <div class="case-rail">
+      <div class="company-cell"><div class="k">Company</div><div class="v"><img class="company-mark" src="assets/diligent.png" alt="Diligent" /></div></div>
+      <div><div class="k">Role</div><div class="v">Staff Product Designer</div></div>
+      <div><div class="k">Team</div><div class="v">Platform</div></div>
+      <div><div class="k">Year</div><div class="v">2024&ndash;</div></div>
+      <div><div class="k">Outcome</div><div class="v">Cross-product adoption</div></div>
+    </div>
+  </article>
+
+  <!-- CASE 03 — HSBC persona-based design system simplification, 2022 -->
+  <article class="case">
+    <div class="case-meta">
+      <span class="num">03</span>
+      <span class="tag">Design system</span>
+      <span class="tag">Personas</span>
+      <span class="tag">HSBC</span>
+    </div>
+    <h3 class="case-title">HSBC &mdash; simplifying a global design system through persona-driven consolidation</h3>
+    <p class="case-blurb">A highly fragmented mobile portfolio across regions led to duplicated patterns and high operational overhead.</p>
+    <p class="case-blurb">By anchoring the design system in a set of core personas, the work reduced complexity, eliminated low-value patterns, and created a more coherent, scalable foundation for global banking experiences.</p>
+
+    <div class="case-image mock-board fill-image">
+      <div class="board-img">
+        <img src="assets/HSBC.png" alt="HSBC persona-based design system — simplified patterns mapped to the bank's core user personas." />
+      </div>
+    </div>
+
+    <div class="case-rail">
+      <div class="company-cell"><div class="k">Company</div><div class="v"><img class="company-mark" src="assets/mckinsey.png" alt="McKinsey &amp; Company" /></div></div>
+      <div><div class="k">Role</div><div class="v">Senior Product Design Consultant</div></div>
+      <div><div class="k">Team</div><div class="v">Global platform</div></div>
+      <div><div class="k">Year</div><div class="v">2022</div></div>
+      <div><div class="k">Outcome</div><div class="v">Simplified adoption</div></div>
+    </div>
+  </article>
+
+  <!-- CASE 04 — Riyadh Airline AI Assistant, 2023 -->
+  <article class="case">
+    <div class="case-meta">
+      <span class="num">04</span>
+      <span class="tag">AI assistant</span>
+      <span class="tag">Aviation</span>
+      <span class="tag">Riyadh Air</span>
+    </div>
+    <h3 class="case-title">Riyadh Air AI Assistant — a conversational companion for the Kingdom's new flagship airline.</h3>
+    <p class="case-blurb">This project started as a McKinsey LOP at a time when GenAI capabilities were just beginning to mature. Together with the team, we explored emerging use cases and translated them into a premium, conversational travel experience.</p>
+    <p class="case-blurb">Although the delivered scope was limited, the visual direction and interaction model significantly influenced the company's broader product design language.</p>
+
+    <div class="case-image mock-board hug-content">
+      <div class="board-img">
+        <img src="assets/riyadh-airline.png" alt="Riyadh Air AI Assistant — conversational interface for flight planning, booking, and trip management." />
+      </div>
+    </div>
+
+    <div class="case-rail">
+      <div class="company-cell"><div class="k">Company</div><div class="v"><img class="company-mark" src="assets/mckinsey.png" alt="McKinsey &amp; Company" /></div></div>
+      <div><div class="k">Role</div><div class="v">Senior Product Design Consultant</div></div>
+      <div><div class="k">Team</div><div class="v">AI / Product</div></div>
+      <div><div class="k">Year</div><div class="v">2023</div></div>
+      <div><div class="k">Outcome</div><div class="v">Launch-ready assistant</div></div>
+    </div>
+  </article>
+
+  <!-- CASE 05 — SAP Project Companion, 2018 -->
+  <article class="case">
+    <div class="case-meta">
+      <span class="num">05</span>
+      <span class="tag">Native iOS</span>
+      <span class="tag">SAP ECC</span>
+      <span class="tag">Manager tools</span>
+    </div>
+    <h3 class="case-title">Project Companion for Managers — the frontrunner native iOS app integrated with SAP ECC systems.</h3>
+    <p class="case-blurb">This was the first native iOS app delivered as part of the <a href="https://techcrunch.com/2016/05/05/sap-announces-new-partnership-with-apple-to-expand-ios-in-the-enterprise/" target="_blank" rel="noopener noreferrer" class="inline-link">Apple–SAP partnership ↗</a>. Designing it was challenging due to the parallel development of a new design system, requiring close alignment between platform conventions and enterprise needs.</p>
+    <p class="case-blurb">The project became a key reference for how iOS experiences can integrate with complex business workflows, and it influenced the design patterns used in subsequent SAP mobile applications.</p>
+
+    <div class="case-image mock-board hug-content">
+      <div class="board-img">
+        <img src="assets/sap-2018-project-companion.png" alt="SAP Project Companion — native iOS app for managers, integrated with SAP ECC systems for tasks and project collaboration." />
+      </div>
+    </div>
+
+    <div class="case-rail">
+      <div class="company-cell"><div class="k">Company</div><div class="v"><img class="company-mark" src="assets/SAP.png" alt="SAP" /></div></div>
+      <div><div class="k">Role</div><div class="v">Lead designer</div></div>
+      <div><div class="k">Team</div><div class="v">Mobile platform</div></div>
+      <div><div class="k">Year</div><div class="v">2018</div></div>
+      <div><div class="k">Outcome</div><div class="v">Frontrunner ECC app</div></div>
+    </div>
+  </article>
+
+  <!-- CASE 06 — SAP iOS design system, 2017 -->
+  <article class="case">
+    <div class="case-meta">
+      <span class="num">06</span>
+      <span class="tag">Design system</span>
+      <span class="tag">iOS</span>
+      <span class="tag">SAP</span>
+    </div>
+    <h3 class="case-title">Scaffolded SAP's first native iOS design system — and gave a fragmented mobile portfolio one shared language.</h3>
+    <p class="case-blurb">Before 2017, each SAP mobile app interpreted iOS its own way. I scaffolded the first native design system.</p>
+
+    <div class="case-image case-photo">
+      <img src="assets/sap-ios-2017.png" alt="SAP native iOS apps — Asset Manager, Dashboard, Start, Financial Report, Highlight Units — shown side by side on iPhone, unified under the 2017 design system." />
+    </div>
+
+    <div class="case-rail">
+      <div class="company-cell"><div class="k">Company</div><div class="v"><img class="company-mark" src="assets/SAP.png" alt="SAP" /></div></div>
+      <div><div class="k">Role</div><div class="v">Mobile UX designer</div></div>
+      <div><div class="k">Team</div><div class="v">Mobile platform</div></div>
+      <div><div class="k">Year</div><div class="v">2017</div></div>
+      <div><div class="k">Outcome</div><div class="v">Portfolio-wide adoption</div></div>
+    </div>
+  </article>
+
+</section>
+
+<!-- ============ TOOLS / STACK ============ -->
+<section class="wrap tools">
+  <div class="tools-head">
+    <span class="kicker">Tools · stack</span>
+    <h2 class="tools-title">What I build with.</h2>
+  </div>
+  <div class="tools-row-wrap">
+    <ul class="tools-row">
+      <li class="tool"><img src="https://cdn.simpleicons.org/figma" alt="" /><span>Figma</span></li>
+      <li class="tool"><img src="https://cdn.simpleicons.org/anthropic" alt="" /><span>Claude</span></li>
+      <li class="tool"><img src="https://cdn.simpleicons.org/cursor" alt="" /><span>Cursor</span></li>
+      <li class="tool"><img src="https://cdn.simpleicons.org/vercel" alt="" /><span>Vercel</span></li>
+      <li class="tool"><img src="https://cdn.simpleicons.org/supabase" alt="" /><span>Supabase</span></li>
+      <li class="tool"><img src="https://cdn.simpleicons.org/swift" alt="" /><span>Swift</span></li>
+      <li class="tool"><img src="https://cdn.simpleicons.org/react" alt="" /><span>React</span></li>
+      <li class="tool"><img src="https://cdn.simpleicons.org/angular" alt="" /><span>Angular</span></li>
+      <li class="tool"><img src="assets/composio.png" alt="" /><span>Composio</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CONTACT STRIP ============ -->
+<div class="wrap">
+  <div class="contact-strip">
+    <div class="left">
+      <h3>That was the sneak peek.</h3>
+      <p>Want the full story behind any of these? I'm happy to walk you through it.</p>
+    </div>
+    <div class="right">
+      <a href="mailto:hello@gergokondor.com">hello@gergokondor.com</a>
+      <a href="https://www.linkedin.com/in/gergokondor/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="https://drive.google.com/file/d/1xFBCr_fsmxcIqvWRvAZVK4wHjl8pSuPU/view" target="_blank" rel="noopener noreferrer">CV ↗</a>
+    </div>
+  </div>
+
+  <footer class="bottom">
+    <div>© 2026 Gergő Kondor · Designed in Budapest.</div>
+    <div>Sneak peek · last updated April 2026</div>
+  </footer>
+</div>
+
+<script>
+  // Carousel: click dots to navigate, dot stays in sync with scroll / swipe
+  document.querySelectorAll('[data-carousel]').forEach(function (wrap) {
+    var track = wrap.querySelector('.carousel');
+    var slides = wrap.querySelectorAll('.slide');
+    var dots = wrap.querySelectorAll('.dot');
+    if (!track || !slides.length || !dots.length) return;
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        slides[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+    });
+
+    var setActive = function (i) {
+      dots.forEach(function (d, j) {
+        var active = j === i;
+        d.classList.toggle('active', active);
+        d.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    };
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+            var i = Array.prototype.indexOf.call(slides, entry.target);
+            if (i >= 0) setActive(i);
+          }
+        });
+      }, { root: track, threshold: [0.6] });
+      slides.forEach(function (s) { io.observe(s); });
+    } else {
+      track.addEventListener('scroll', function () {
+        var i = Math.round(track.scrollLeft / track.clientWidth);
+        setActive(Math.max(0, Math.min(slides.length - 1, i)));
+      });
+    }
+  });
+</script>
+
+<script>
+  // ============ Custom cursor ============
+  (function () {
+    if (!window.matchMedia('(any-pointer: fine)').matches) return;
+
+    var lerp = function (a, b, n) { return (1 - n) * a + n * b; };
+    var mousepos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    window.addEventListener('mousemove', function (e) {
+      mousepos.x = e.clientX;
+      mousepos.y = e.clientY;
+    });
+
+    var el = document.querySelector('.js-cursor');
+    if (!el) return;
+    var circle = el.querySelector('.js-cursor-inner');
+    var bounds = circle.getBoundingClientRect();
+    var last = { x: mousepos.x, y: mousepos.y };
+    var scale = 1, lastScale = 1;
+
+    function render() {
+      last.x = lerp(last.x, mousepos.x - bounds.width / 2, 0.2);
+      last.y = lerp(last.y, mousepos.y - bounds.height / 2, 0.2);
+      lastScale = lerp(lastScale, scale, 0.15);
+      circle.style.transform =
+        'translate3d(' + last.x + 'px,' + last.y + 'px,0) scale(' + lastScale + ')';
+      requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
+
+    var targets = document.querySelectorAll('a, button, .dot, .brand, .ham');
+    targets.forEach(function (t) {
+      t.addEventListener('mouseenter', function () { scale = 1.9; });
+      t.addEventListener('mouseleave', function () { scale = 1; });
+      t.addEventListener('mousedown',  function () { lastScale = 0.4; });
+    });
+  })();
+</script>
+
+</body>
+</html>

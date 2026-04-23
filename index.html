@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gergő Kondor — projects sneak peeks</title>
+  <meta name="description" content="A password-protected sneak peek at recent work by Gergő Kondor — product designer." />
+
+  <!-- favicon -->
+  <link rel="icon" type="image/png" sizes="18x18" href="assets/favicon/favicon-18.png" />
+  <link rel="icon" type="image/png" sizes="34x34" href="assets/favicon/favicon-34.png" />
+  <link rel="icon" type="image/png" sizes="50x50" href="assets/favicon/favicon-50.png" />
+  <link rel="shortcut icon" href="assets/favicon/favicon-34.png" />
+  <link rel="apple-touch-icon" href="assets/favicon/favicon-50.png" />
+  <meta name="theme-color" content="#0a0c10" />
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0a0c10;
+      --ink: #d8dde4;
+      --ink-dim: #9aa1ac;
+      --ink-mute: #7f8690;
+      --line: #1d2430;
+      --accent: #ff7675;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--ink);
+      font-family: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+      min-height: 100vh; min-height: 100svh;
+      display: grid; place-items: center;
+      padding: 32px 20px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .gate {
+      width: 100%; max-width: 480px;
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 28px;
+    }
+
+    .brand-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(255,118,117,0.14);
+    }
+
+    h1 {
+      font-family: "DM Mono", ui-monospace, monospace;
+      font-weight: 500;
+      font-size: clamp(15px, 2.2vw, 19px);
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      line-height: 1.5;
+      margin: 0;
+    }
+    h1 .accent { color: var(--accent); }
+
+    form {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 14px; width: 100%;
+    }
+
+    .field {
+      width: 100%; max-width: 320px;
+      display: flex; align-items: center;
+      padding: 12px 14px;
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      transition: border-color 180ms ease;
+    }
+    .field:focus-within { border-color: var(--ink-mute); }
+    .field input {
+      flex: 1;
+      font-family: inherit;
+      font-size: 13px; letter-spacing: 0.12em;
+      background: transparent; border: 0; outline: 0;
+      color: var(--ink);
+      text-align: center;
+    }
+    .field input::placeholder {
+      color: var(--ink-mute);
+      letter-spacing: 0.14em;
+      text-transform: lowercase;
+    }
+
+    button {
+      font-family: inherit;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-mute);
+      background: transparent; border: 0; cursor: pointer;
+      padding: 8px 6px;
+      transition: color 180ms ease;
+    }
+    button:hover { color: var(--accent); }
+    button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+
+    .err {
+      min-height: 14px;
+      font-size: 10.5px; letter-spacing: 0.06em;
+      color: var(--accent);
+      opacity: 0; transition: opacity 180ms ease;
+    }
+    .err.visible { opacity: 1; }
+
+    .foot {
+      margin-top: 8px;
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+  </style>
+</head>
+<body>
+  <main class="gate" aria-labelledby="title">
+    <span class="brand-dot" aria-hidden="true"></span>
+    <h1 id="title">Gergő Kondor <span class="accent">·</span> projects</h1>
+
+    <form id="gate-form" autocomplete="off" novalidate>
+      <label class="field" for="pw">
+        <input id="pw" name="pw" type="password" placeholder="password" autofocus autocomplete="off" aria-label="password" />
+      </label>
+      <button type="submit">Enter &crarr;</button>
+      <div id="err" class="err" role="status" aria-live="polite">wrong password</div>
+    </form>
+
+    <div class="foot">A sneak peek · 2026</div>
+  </main>
+
+  <script>
+    (function () {
+      var form = document.getElementById('gate-form');
+      var pw   = document.getElementById('pw');
+      var err  = document.getElementById('err');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (pw.value === 'letmein') {
+          window.location.href = 'work.html';
+        } else {
+          err.classList.add('visible');
+          pw.select();
+        }
+      });
+
+      pw.addEventListener('input', function () {
+        err.classList.remove('visible');
+      });
+    })();
+  </script>
+</body>
+</html>
